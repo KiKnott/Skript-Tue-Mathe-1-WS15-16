@@ -284,4 +284,91 @@ headsep=6pt
  	äquivalente Ausdrücke liefert einen zu $\alpha$ äquivalenten Ausdruck. So erhält man
  	eventuell kürzere/einfachere Ausdrücke, zum Beispiel:
 	\[\neg (A\Rightarrow B) \underset{1.9\,g)}{=}\neg(\neg A\vee B) \underset{1.9\, e)}{=}\neg(\neg A) \wedge (\neg B) \underset{1.9\, a)}{=}A\wedge \neg B\]
+\subsection{Definition Tautologie, Kontradiktion, erfüllbar}
+	Ein Ausdruck heißt \underline{Tautologie}, wenn er für jede Belegung einer Aussagevariablen immer den
+	Wert 1 annimmt.\\
+	Hat er immer den Wert 0, heißt er \underline{Kontradiktion}.\\
+	Gibt es mindestens eine Belegung der Aussagenvariablen, sodass der Ausdruck den Wert 1 hat, heißt
+	er \underline{erfüllbar}.
+\subsection{Beispiele}
+\subsubsection{} $A\vee \neg A$ Tautologie\\
+	\hphantom{a)  } $A\wedge \neg A$ Kontradiktion
+\subsubsection{} $\neg (A \Rightarrow B) \Leftrightarrow (A\wedge \neg B)$ Tautologie (vgl. 1.11)\\
+	\hphantom{b)  } $(A \Rightarrow B) \Leftrightarrow (\neg A\wedge B)$ Tautologie (vgl. 1.9 g))
+\subsubsection{} $A\wedge \neg B$ ist erfüllbar (durch $A=1, \; B=0$\\
+	\vspace{0.5em}\underline{\textsc{Prädikatenlogik}}\\
+	Eine \underline{Aussageform} ist ein sprachliches Gebilde, das formal wie eine Aussage aussieht, 
+	aber nie eine oder mehrere Variablen enthält.\\
+	\textsf{Beispiel:} $P(x)\,: \underbrace{x}_{\text{Variable}}\overbrace{<10}^{\text{Prädikat(Eigenschaft)}}$\\
+	$Q(x)\,:\;x$ studiert Informatik\\
+	\vspace{0.5em}$R(y)\,:\;y$ ist Primzahl und $y^2+2$ ist Primzahl\\
+	Eine Aussageform wird zur Aussage, wenn man die Variable durch ein konkretes Objekt ersetzt.\\
+	Dies ist nur dann sinnvoll, wenn klar ist, welche Werte für $x$ erlaubt sind, daher wird oft
+	die zugelassene Wertemenge mit angegeben. (hier Vorgriff auf Kapitel "'Mengen"').\\
+	\textsf{Im Beispiel: } $P(3)$ ist wahr, $P(42)$ falsch.\\
+	\hphantom{\textsf{Im Beispiel: } }$R(2)$ ist falsch, $R(3)$ wahr.\\
+	Oft ist die Frage interessant, ob es wenigstens ein $x$ gibt, für das $P(x)$ wahr ist, oder ob 
+	$P(x)$ sogar für alle zugelassenen $x$ wahr ist.
+\subsection{Definition Quantoren}
+	Sei $P(x)$ eine Aussageform.
+\subsubsection{}
+	Die Aussage "'Für alle $x$ (aus einer bestimmten Menge $M$) gilt $P(x)$ ist genau dann wahr, 
+	wenn $P(x)$ für alle in Frage \vspace{0.5em} kommenden $x$ wahr ist.\\
+	\textsf{Schreibweise: }$\underbrace{\forall}_{\substack{\text{für alle,}\\\text{für jedes}}}
+	x \underbrace{\in M}_{\text{aus der Menge }M}\underset{\text{gilt}}{\underset{\downarrow}{:}} 
+	\underset{\text{Eigenschaft}}{\underset{\downarrow}{P(x)}}$\\
+	auch $\underset{x\in M}{\forall} \; P(X)$ \quad Das Symbol '$\forall$' heißt All-Quantor, die 
+	Aussage All-Aussage.
+\subsubsection{} Die Aussage "'Es gibt (mindestens) ein $x$ aus der Menge $M$, das die Eigenschaft $P(x)$
+	besitzt"' ist wahr genau dann wenn $P(x)$ für mindestens eines der in Frage 
+	\vspace{0.5em} kommenden $x$ wahr ist.\\
+	\textsf{Schreibweise: } $\underbrace{\exists}_{\substack{\text{es gibt,}\\\text{es existiert}}} x \in M
+	\underbrace{:}_{\substack{\text{sodass}\\\text{gilt}}} P(x)$ \quad "'$\exists$"' heißt 
+	%TODO Anführungszeichen verbessern
+	Existenzquantor, die Aussage Existenzaussage
+\subsection{Beispiel/Bemerkung}
+	Übungsgruppe G: 
+	\begin{tabular}{ccc}
+		a & b & c\\
+		Anna & Bob & Clara\\
+		blond & blond & blond
+	\end{tabular}\hfill\break
+	$B(x)\,:\;x$ ist blond\\
+	$W(x)\,:\;x$ ist weiblich\\
+	$B(a)=1,\;\;W(b)=0$
+\subsubsection*{1.) } \makebox[12cm][l]{Alle Studenten der Gruppe sind blond}(1)\\
+	\hphantom{\textsf{1.)  } }\,\makebox[12cm][l]{$\forall x \in G : \, x\text{ ist blond }
+	;\forall x\in G:B(x)$}\vspace{0.5em}(1)\\
+	Das bedeutet: 
+	\begin{tabular}{ccccc}
+	a blond &$\wedge$& b blond &$\wedge$& c blond\\
+	${B(a)}_{(1)}$ &$\wedge$& ${B(b)}_{(1)}$ &$\wedge$& ${B(c)}_{(1)}$
+	\end{tabular}\\
+	$\forall$ ist also eine Verallgemeinerung der Konjunktion.\\
+\subsubsection*{2.) } \makebox[12cm][l]{Alle Studenten der Gruppe sind weiblich}(0)\\
+	\hphantom{\textsf{2.)  } }\,\makebox[12cm][l]{$\underbrace{W(a)}_1\;\wedge\;
+	\underbrace{W(b)}_0\;\wedge\;\underbrace{W(c)}_1$}(0)
+\subsubsection*{3.) } \makebox[12cm][l]{Es gibt einen Studenten der Gruppe,
+	der weiblich ist.}(1)\\
+	\hphantom{\textsf{3.)  } }\,\makebox[12cm][l]{$\exists x \in G: W(x)$}(1)\\
+	\hphantom{\textsf{3.)  } }\,\makebox[12cm][l]{$\underbrace{W(a)}_1\;\vee\;
+	\underbrace{W(b)}_0\;\vee\;\underbrace{W(c)}_1$}$=1$\\
+	$\exists$ ist eine verallgemeinerte Disjunktion.
+\subsubsection*{4.) } \makebox[12cm][l]{Aussage $A$: Alle Studenten der Gruppe sind weiblich}(0)\\
+	\hphantom{\textsf{4.)  } }\,Verneinung von $A$? \quad $\neg A$\\
+	\danger\; \makebox[12cm][l]{Nicht korrekt wäre: Alle Studenten der Gruppe sind männlich.} (0)\\
+	\textsf{korrekt: } \makebox[11.35cm][l]{Nicht alle Studenten der Gruppe sind weiblich}(1)\\
+	\hphantom{\textsf{korrekt: } }\makebox[11.35cm][l]{Es gibt (mind.) einen Studenten der Gruppe,
+	der nicht weiblich ist}(1)\\
+	allgemeiner:
+\subsection{Negation von All- und Existenzaussagen}
+\subsubsection{} $\neg (\forall x \in M: P(x))\equiv \exists x\in M:\neg P(x)$
+\subsubsection{} $\neg (\exists x \in M: P(x))\equiv \forall x\in M:\neg P(x)$\\
+	(Verallgemeinerung der Regeln von DeMorgan $\rightarrow$ Bsp. 1.15,4)
+	\begin{align*}
+		\neg (\forall x \in G: W(x))&\equiv \neg(W(a)\wedge W(b) \wedge W(c))\\
+		&\underset{DeMorgan}{\equiv}  \neg W(a)\vee \neg W(b) \vee \neg W(c) \\
+		&\equiv \exists x \in G : \neg W(x)
+	\end{align*}
+		%TODO Spacing -> DeMorgan
 \end{document}
