@@ -1,0 +1,236 @@
+\documentclass[10pt,a4paper,titlepage,fleqn]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[german]{babel}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{tikz}
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{wrapfig}
+\author{Kirsten Knott} %-> Autor eintragen
+\title{Mathematik I}  %-> Titel eintragen
+\date{WS 2015/16}		   %-> Datum eintragen
+
+\setcounter{tocdepth}{2}
+\linespread{1.4}
+\setcounter{page}{0}
+\setlist{nolistsep}
+
+%----------------------------------------------------------------------------------------
+%	Page Dimensions
+%----------------------------------------------------------------------------------------
+
+\geometry{
+a4paper,
+left=20mm,
+right=27mm,
+top=34mm,
+bottom=26mm,
+headsep=6pt
+}
+
+%----------------------------------------------------------------------------------------
+%	Page Style
+%----------------------------------------------------------------------------------------
+
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\rightmark}
+\lhead{\leftmark}
+\fancyfoot[C]{\thepage}
+\renewcommand\headrule{
+\begin{minipage}{1\textwidth}
+\hrule width \hsize \kern 1mm \hrule width \hsize height 2pt 
+\end{minipage}}%
+
+
+%----------------------------------------------------------------------------------------
+%	Mengenzeichen
+%----------------------------------------------------------------------------------------
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\C}{\mathbb{C}}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\newcommand*{\titleGM}{\begingroup % Create the command for including the title page in the document
+\hbox{ % Horizontal box
+\hspace*{0.2\textwidth}
+\rule{1pt}{\textheight}
+\hspace*{0.05\textwidth}
+\parbox[b]{0.75\textwidth}{
+
+{\noindent\Huge\bfseries Mathematik für \\[0.5\baselineskip] Informatiker I}\\[2\baselineskip] %-> Titel für Deckblatt
+{\large \textit{WS 2015/16 Tübingen}}\\[4\baselineskip]	% ->Unterschrift für Deckblatt
+{\Large \textsc{Dr. Dorn}}					% -> Mittelzeile Deckblatt
+
+\vspace{0.5\textheight}
+{\noindent Kirsten Knott }\\[\baselineskip]  %-> Untere Zeile Deckblatt
+}}
+\endgroup}
+
+
+%----------------------------------------------------------------------------------------
+%	Sectioning 1.1.a)
+%----------------------------------------------------------------------------------------
+
+\renewcommand{\thesubsubsection}{\alph{subsubsection})}
+
+%----------------------------------------------------------------------------------------
+%	Sectioning Layouts
+%----------------------------------------------------------------------------------------
+
+\titleformat{\section}[block]
+{\LARGE\scshape}{\rule{\textwidth}{1pt}\\
+\centering §\;\thesection}{7pt}
+{}
+[\vspace{-10pt}\rule{\textwidth}{0.3pt}\vspace{10pt}]
+
+\titlespacing{\section}{2pt}{.5ex}{.2ex}
+
+\titleformat{\subsubsection}[runin]
+{\normalsize\tt}{\thesubsubsection}{4pt}{}
+
+\titlespacing{\subsection}{4pt}{1.5ex}{1.1ex}
+
+\titlespacing{\subsubsection}{1pt}{.5ex}{.8ex}
+
+%----------------------------------------------------------------------------------------
+
+\setlength{\parindent}{0pt}
+
+\begin{document}
+
+\thispagestyle{empty}
+\titleGM 
+\newpage
+\thispagestyle{empty}
+\tableofcontents
+\newpage
+
+\section{Logik}
+	\vspace{0.5em} \textsc{Aussagenlogik} \marginpar{12.10.15}\\
+	Eine \underline{\textsf{logische Aussage}} ist ein Satz, der entweder wahr oder falsch (also nie
+	 beides zugleich) ist. Wahre Aussagen haben den Wahrheitswert 1 (auch "'wahr"', 
+	"'w"', "'true"', "'t"'), falsche den Wert 0 (auch "'falsch"', "'f"', "'false"')\\
+	Notation: \quad Aussagenvariablen $A,B,C,\dots \quad A_1,A_2, \dots$\\
+	Bsp.: 
+	\begin{itemize}
+		\setlength\itemsep{-0.1em}
+		\item \makebox[8cm][l]{2 ist eine gerade Zahl}(1)
+		\item \makebox[8cm][l]{Heute ist Montag}(1)
+		\item \makebox[8cm][l]{2 ist eine Primzahl}(1)
+		\item \makebox[8cm][l]{12 ist eine Primzahl}(0)
+		\item \makebox[8cm][l]{Es gibt unendlich viele Primzahlen}(1)
+		\item \makebox[8cm][l]{Es gibt unendlich viele Primzahlzwillinge}(Aussage, 
+		 aber unbekannter WHW)
+		\item \makebox[8cm][l]{7}(keine Aussage)
+		\item \makebox[8cm][l]{Ist 172 eine Primzahl}(keine Aussage)
+	\end{itemize}
+	Aus einfachen Aussagen \marginpar{14.10.15} kann man durch logische Verknüpfungen 
+	(Junktoren, z.B. "'und"', "'oder"') komplizierte bilden.
+	Diese werden Ausdrücke genannt. (auch Aussagen sind Ausdrücke)
+	Durch sog. \underline{\textsf{Wahrheitstafeln}} gibt man an, wie der Wahrheitswert der
+	 zusammengesetzten Aussage durch die Werte der Teilaussagen bedingt ist. \\
+	Im Folgenden seien $A,B$ Aussagen\\
+	Die wichtigsten Junktoren:
+\subsection{Negation}
+	Verneinung von $A$: \; \framebox[1.3\width]{$\neg A$}\;
+	(auch $\overline{A}\,$), "'nicht $A$"'\\
+	\vspace{0.3em}
+	ist die Aussage, die genau dann wahr ist, wenn $A$ falsch ist.\\
+	\vspace{0.3em}
+	Wahrheitstafel:
+	$\begin{array}{c|c}
+		A & \neg A\\
+		\hline
+		1 & 0\\
+		0 & 1\\
+	\end{array}$\\
+	\makebox[12cm][l]{Beispiele:\hphantom{$\neg$ }$A$: 6 ist durch 3 teilbar}(1)\\
+	\makebox[12cm][l]{\hphantom{Beispiele: }$\neg A$: 6 ist nicht durch 3 teilbar}(0)\\
+	\makebox[12cm][l]{\hphantom{Beispiele: }\hphantom{$\neg$}$B$: 4,5 ist eine gerade 
+	Zahl}(0)\\
+	\makebox[12cm][l]{\hphantom{Beispiele: }$\neg B$: 4,5 ist keine gerade Zahl}(1)
+	\newpage
+\subsection{Konjunktion}
+	Verknüpfung von $A$ und $B$ durch "'und"' \; \framebox[1.3\width]{$A\wedge B$}\\
+	ist genau dann wahr, wenn $A$ und $B$ gleichzeitig wahr sind.\\
+	$\begin{array}{cc|c}
+		A & B & A\wedge B\\
+		\hline
+		1& 1& 1\\
+		1&0&0\\
+		0&1&0\\
+		0&0&0
+	\end{array}$
+\subsection{Disjunktion}
+	$\begin{array}{lcc|c}
+		\text{"'oder"' : }$\framebox[1.3\width]{$A\vee B$}\quad$& A & B & A\vee B\\
+		\cline{2-4}
+		&1& 1& 1\\
+		&1&0&1\\
+		&0&1&1\\
+		&0&0&0
+	\end{array}$
+\subsection{XOR}
+	$\begin{array}{lcc|c}
+		\text{"'entweder oder"' } A \;\mathsf{XOR}\; B, \;$\framebox[1.3\width]{$A\oplus B$}\quad$& A & B & A\oplus B\\
+		\cline{2-4}
+		\text{(ausschließendes oder)}&1& 1& 0\\
+		&1&0&1\\
+		&0&1&1\\
+		&0&0&0
+	\end{array}$
+\subsection{Implikation}
+	$\begin{array}{lcc|c}
+		\text{"'wenn \dots dann"' } $\framebox[1.3\width]{$A\Rightarrow B$}\quad$& A & B & A\Rightarrow B\\
+		\cline{2-4}
+		\text{(wenn }A\text{ gilt, dann auch }B		&1&1&1\\
+		A\text{ impliziert }B						&1&0&0\\
+		A\text{ ist hinreichend für }B)				&0&1&1\\
+		\text{"'ex falso quodlibet "'}				&0&0&1
+	\end{array}$
+\subsection{Äquivalenz}
+	$\begin{array}{lcc|c}
+		\text{"'genau dann wenn"' } $\framebox[1.3\width]{$A
+		\Leftrightarrow B$}\quad$& A & B & A\Leftrightarrow B\\
+		\cline{2-4}
+		\text{(dann und nur dann wenn,}				&1&1&1\\
+		\text{äqivalent,}							&1&0&0\\
+		\text{if and only if, iff})					&0&1&0\\
+													&0&0&1
+	\end{array}$\vspace{0.5em}\\
+	\textsc{\underline{Festlegung:}} \; \underline{$\neg$} bindet stärker 
+	als alle anderen Junktoren ($\neg A \wedge B$ heißt $(\neg A)\wedge B$)
+\subsection{Beispiele}
+\subsubsection{}
+	Wann ist der Ausdruck $(A\vee B)\wedge \neg (A\wedge B)$ wahr?\\
+	\quad $\rightarrow$ \; exklusives oder
+\subsubsection{}
+	$(A\wedge B)\Rightarrow \neg (C\vee A)$\\
+	\quad $\rightarrow$ \; $0\;0\;1\;1\;1\;1\;1\;1$
+\subsection{Definition "'$\equiv$"'}
+	\marginpar{19.10.15} Haben zwei Ausdrücke $\alpha$ und $\beta$ bei jeder 
+	Kombination von Wahrheitswerten ihrer Aussagenvariablen den gleichen Wahrheitswert,
+	so heißen sie \underline{\textsf{logisch äquivalent}}, man schreibt 
+	\framebox[1.3\width]{$\alpha \equiv\beta$} ("'$\equiv$"' ist kein Junktor, 
+	entspricht "'$=$"') [ Es gilt: Falls $\alpha \equiv\beta$ gilt, hat der Ausdruck 
+	$\alpha \Leftrightarrow\beta$ immer den WHW 1 ]
+\subsection{Sätze}
+\addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
+\subsubsection{Doppelte Negation}
+s
+\subsubsection{Doppelte Negation}
+s
+\addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+\end{document}
