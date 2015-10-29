@@ -11,6 +11,7 @@
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage{wrapfig}
+\usepackage{color}
 \author{Kirsten Knott} %-> Autor eintragen
 \title{Mathematik I}  %-> Titel eintragen
 \date{WS 2015/16}		   %-> Datum eintragen
@@ -49,7 +50,7 @@ headsep=6pt
 
 
 %----------------------------------------------------------------------------------------
-%	Mengenzeichen
+%	Eigene Zeichen
 %----------------------------------------------------------------------------------------
 
 \newcommand{\R}{\mathbb{R}}
@@ -57,6 +58,10 @@ headsep=6pt
 \newcommand{\N}{\mathbb{N}}
 \newcommand{\Z}{\mathbb{Z}}
 \newcommand{\C}{\mathbb{C}}
+\newcommand{\XOR}{\mathsf{XOR}}
+\newcommand*{\TakeFourierOrnament}[1]{{%
+\fontencoding{U}\fontfamily{futs}\selectfont\char#1}}
+\newcommand*{\danger}{\TakeFourierOrnament{66}}
 
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
@@ -229,8 +234,54 @@ headsep=6pt
 \subsection{Sätze}
 \addtocontents{toc}{\protect\setcounter{tocdepth}{3}}
 \subsubsection{Doppelte Negation}
-s
-\subsubsection{Doppelte Negation}
-s
+	$A\equiv \neg(\neg A)$
+\subsubsection{Kommutativität}
+	von $\wedge,\vee,\XOR, \Leftrightarrow$\\
+	\hphantom{b) }\danger\; gilt nicht für "'$\Rightarrow$"'
+\subsubsection{Assoziativität}
+	von $\wedge,\vee,\XOR, \Leftrightarrow$
+\subsubsection{Distributivität}
+	von $\wedge,\vee$
+\subsubsection{Regeln von DeMorgan}\hfill\break
+	$\neg (A $\colorbox{orange}{$\wedge$}$ B) \equiv \neg A 
+	$\colorbox{orange}{$\vee$}$\neg B\\
+	\neg (A $\colorbox{orange}{$\vee$}$ B) \equiv \neg A 
+	$\colorbox{orange}{$\wedge$}$\neg B$
+\subsubsection{Kontraposition} $A\Rightarrow B \equiv \neg B \Rightarrow \neg A$
+\subsubsection{$A\Rightarrow B \equiv \neg A \vee B$ }
+\subsubsection{$A\Leftrightarrow B \equiv (A \Rightarrow B)\wedge (B\Rightarrow A)$ }
+	\hfill\break
+	(Alle Äquivalenzen gelten auch wenn die Aussagenvariablen durch 
+	Ausdrücke ersetzt werden.)\\
 \addtocontents{toc}{\protect\setcounter{tocdepth}{2}}
+	\textsc{\underline{Beweis}}: \;Jeweils mittels Wahrheitstafel,\vspace{0.5em}\\
+	$\begin{array}{lc|c|c}
+		\text{z.B.: }\texttt{a) } & A & \neg A&\neg(\neg A)\\
+		\cline{2-4}
+									&0&1&0\\
+									&1&0&1
+	
+	\end{array}$
+\subsection{Bemerkung zur Kontraposition}
+	(1.9f): $A\Rightarrow B \equiv \underbrace{(\neg B \Rightarrow \neg A)}_{\substack{
+	\text{wird \underline{Kontraposition} genannt, wichtig für Beweis.}\\
+	\text{ Wird im Sprachgebrauch oft falsch verwendet.}}}$\vspace{0.5em}\\
+	\underline{\textsc{Beispiel:}} \; $\underbrace{\text{Pit ist ein Dackel.}}_{A}
+	 \;\Rightarrow\; \underbrace{\text{Pit ist ein Hund.}}_{B}$\\
+	äquivalent zu: $(\neg B)\Rightarrow (\neg A)$\\
+	\hphantom{\underline{\textsc{Beispiel:}} \;} Pit ist kein Hund. $\Rightarrow$
+	Pit ist kein Dackel.\\
+	aber nicht zu: $B\Rightarrow A$\\
+	\hphantom{\underline{\textsc{Beispiel:}} \;} Pit ist ein Hund. $\Rightarrow$
+	Pit ist ein Dackel.\\
+	\nopagebreak aber nicht zu: $(\neg A)\Rightarrow (\neg B)$\\
+	\hphantom{\underline{\textsc{Beispiel:}} \;} Pit ist kein Dackel. $\Rightarrow$
+	Pit ist kein Hund.\\
+	\underline{\textsc{Beispiel:}} \; Sohn des Logikers / bellende Hunde 
+	($\rightarrow$ Folien)
+\subsection{Bemerkung (Logisches Umformen)}
+	Sei $\alpha$ ein Ausdruck, Ersetzen von Teilausdrücken von $\alpha$ durch logisch
+ 	äquivalente Ausdrücke liefert einen zu $\alpha$ äquivalenten Ausdruck. So erhält man
+ 	eventuell kürzere/einfachere Ausdrücke, zum Beispiel:
+	\[\neg (A\Rightarrow B) \underset{1.9\,g)}{=}\neg(\neg A\vee B) \underset{1.9\, e)}{=}\neg(\neg A) \wedge (\neg B) \underset{1.9\, a)}{=}A\wedge \neg B\]
 \end{document}
