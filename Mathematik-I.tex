@@ -364,11 +364,115 @@ headsep=6pt
 \subsection{Negation von All- und Existenzaussagen}
 \subsubsection{} $\neg (\forall x \in M: P(x))\equiv \exists x\in M:\neg P(x)$
 \subsubsection{} $\neg (\exists x \in M: P(x))\equiv \forall x\in M:\neg P(x)$\\
-	(Verallgemeinerung der Regeln von DeMorgan $\rightarrow$ Bsp. 1.15,4)
+	(Verallgemeinerung der Regeln von DeMorgan $\rightarrow$ Bsp. 1.15,4)\vspace{-0.5em}
 	\begin{align*}
 		\neg (\forall x \in G: W(x))&\equiv \neg(W(a)\wedge W(b) \wedge W(c))\\
 		&\underset{DeMorgan}{\equiv}  \neg W(a)\vee \neg W(b) \vee \neg W(c) \\
 		&\equiv \exists x \in G : \neg W(x)
 	\end{align*}
 		%TODO Spacing -> DeMorgan
+\section{Mengen}
+\subsection{}
+\subsection{}
+\subsection{}
+\subsection{Beispiele}
+\subsection{Satz (Rechenregeln für Mengen}
+	\marginpar{02.11.15}
+	Seien $A, B , C, X $ Mengen. Dann gilt:\\
+\subsubsection{Kommutativgesetz}
+	$A\cup B = B\cup A\\
+	A\cap B = B\cap A$
+\subsubsection{Assoziativgesetz}
+	$(A\cup B)\cup C = A\cup (B\cup C)$
+\subsubsection{Distributivgesetz}
+	$(A\cup B) \cap C = (A\cap C) \cup (B\cap C)\\
+	(A\cap B) \cup C = (A\cup C) \cap (B\cup C)$
+\subsubsection{Regeln von DeMorgan}
+	$A,B \subseteq X$, dann ${(A\cap B)}^C_X=A^C_X\cup B^C_X\\
+	{(A\cup B)}^C_X=A^C_X\cap B^C_X$
+\subsubsection{$A \subseteq X$, dann ${(A^C_X)}^C_X=A$}
+\subsubsection{$A\bigtriangleup B=(A\cup B)\setminus (A\cap B)$}
+	$(=\lbrace x\mid x\in A \XOR \x \in B \rbrace$
+\subsubsection{$A\cap A = A \Leftrightarrow A\subseteq B$}
+	$A\cap B = A$ genau dann, wenn $A\subseteq B$\\
+\subsubsection{$A\cup B = A \Leftrightarrow B\subseteq A$}
+	\underline{\textsc{Beweis:}}\\
+	\underline{\textsf{a) }} \ $A\cup B = \lbrace x \mid x\in A \vee x \in B \rbrace $\\
+	\hphantom{\underline{\textsf{a) }} \ $A\cup B $} $\lbrace x \mid x\in B \vee x \in A \rbrace
+	= B \cup A$\\
+	$A\cap B$ analog\\
+	\underline{\textsf{b), c)}} \ analog, benutze Gesetze der Aussagenlogik\\
+	\underline{\textsf{d) }} \ ${(A \cap B)}^C_X = \lbrace x \mid x\in  (X \setminus 
+	(A \cap B)) \rbrace$\\
+	\hphantom{\underline{\textsf{d) }} \ ${(A \cap B)}^C_X $} 
+	$\lbrace x \mid x\in X \wedge (x \not \in (A \cap B)) \rbrace$\\
+	\hphantom{\underline{\textsf{d) }} \ ${(A \cap B)}^C_X $} 
+	$\lbrace x \mid x\in X \wedge \neq (x \in (A \cap B)) \rbrace$\\
+	\hphantom{\underline{\textsf{d) }} \ ${(A \cap B)}^C_X $} 
+	$\lbrace x \mid x\in X \wedge \neq ((x \in A) \wedge (x \in B)) \rbrace$\\
+	\hphantom{\underline{\textsf{d) }} \ ${(A \cap B)}^C_X $} 
+	$\lbrace x \mid x\in X \wedge ((x \not \in A) \vee (x \not \in B)) \rbrace$\\
+	\hphantom{\underline{\textsf{d) }} \ ${(A \cap B)}^C_X $} 
+	$\lbrace x \mid ((x\in X) \wedge (x\not \in A)) \vee ((x \in X) 
+	\wedge (x \not \in B)) \rbrace$\\
+	\hphantom{\underline{\textsf{d) }} \ $A^C_X \cup B^C_X$\\
+	2. Regel analog.
+	\underline{\textsf{e) }} \ analog\\
+	\underline{\textsf{f), g), h) }} \ später
+\section{Beweismethoden}
+	Ein mathematischer \underline{\textsf{Beweis}} ist die Herleitung der Wahrheit (oder
+	Falschheit) einer Aussage aus einer Menge von \underline{\textsf{Axiomen}} (nicht beweisbare 
+	Grundtatsachen) oder bereits bewiesenen Aussagen mittels logischer Folgerungen\\
+	Bewiesene Aussagen werden \underline{\textsf{Sätze}} genannt.\\
+	\underline{\textsf{Lemma}} \; - \; Hilfssatz, der nur als Grundlage für wichtigeren
+	Satz formuliert und bewiesen wird.\\
+	\underline{\textsf{Theorem}} \; - \; wichtiger Satz
+	\underline{\textsf{Korollar}} \; - \; einfache Folgerung aus Satz, z. B. Spezialfall\\
+	\underline{\textsf{Definition}} \; - \; Bennenung/Bestummung eines Begriffs/Symbols.\\
+	$\square$ \; - \; Zeichen für Beweisende (auch $\blacksquare , 
+	\mathsf{q.e.d.} , wzbw , \dots$)\\
+	Mathematische Sätye haben oft die Form: \\
+	%TODO Spacing
+	wenn $V$ (Voraussetzung) gilt, dann gilt auch $B$ (Behauptung)\\
+	($V, \, B$ : Aussagen), \textsf{kurz}: $V\Rightarrow B$\\
+	Zu zeigen ist also, dass $V\Rightarrow B$ eine wahre Aussage ist.
+\subsection{Direkter Beweis}
+	Gehe davon aus, dass $V$ wahr ist, folgere daraus, dass $B$ wahr ist.\\
+	[Sei $V$ wahr $\Rightarrow \dots$ \\
+	\hphantom{[Sei $V$ wahr }$\Rightarrow \dots$\\
+	\hphantom{[Sei $V$ wahr }$\Rightarrow \dots$\\
+	\hphantom{[Sei $V$ wahr }$\Rightarrow \dots$\\
+	\hphantom{[Sei $V$ wahr }$\Rightarrow \; B$ ist wahr]\\
+	\underline{\textsc{Beispiel:}} \; \text{Sei } \\
+	$n\in \N\text{. Ist }n\text{ gerade}$, so ist 
+	auch $n^2 \text{ gerade.}$\\
+	%TODO braces V B
+	\begin{align*}
+	\Rightarrow & n=2\cdot k \text{ für ein } k\in \N\\
+	& (\exists k \in \N \text{ mit } n= 2\cdot k\\
+	\Rightarrow & n^2=(2\cdot k)^2 = 4k^2 = 2 \cdot (2k^2)\\
+	\Rightarrow n^2 \text{ ist gerade. } \hfill \square 
+	\end{align*}
+\subsection{Beweis durch Kontraposition}
+	vgl. Satz $1.9\,f)$ $A\Rightarrow B \equiv \neq B \Rightarrow \neq A$.\\
+	Statt $V\Rightarrow B$ zu zeigen, können wir also auch $\neq B\Rightarrow \neq V$ zeigen.\\
+	[Es gelte $\neq B$ $\Rightarrow \dots$ \\
+	\hphantom{[Es gelte $\neq B$ }$\Rightarrow \dots$\\
+	\hphantom{[Es gelte $\neq B$ }$\Rightarrow \dots$\\
+	\hphantom{[Es gelte $\neq B$ }$\Rightarrow \dots$\\
+	\hphantom{[Es gelte $\neq B$ }$\Rightarrow$ Es gilt $\neq V$]\\
+	\underline{\textsf{Beispiel:}} Sei $n\in\N,$\\
+	$\underbrace{\text{Ist } n^2\text{ gerade}}_V$, so $\underbrace{\text{ist auch } n\text{ gerade}}_B$\\
+	\underline{\textsf{Beweis durch Kontraposition:}}\\
+	Sei $n$ ungerade \hfill $//\neq B$ gilt.\\
+	$\Rightarrow n=2k+1$ für ein $k\in\N_0$\\
+	$\Rightarrow n^2=(2k+1)^2 = 4k^2+4k+1= 2(2k^2+2k)+1$\\
+	$\Rightarrow n^2$ ist ungerade \hfill$//\neq V$ gilt. ${}_\square$
+\subsection{Beweis durch Widerspruch (indirekter Beweis)}
+	Zu zeigen ist die Aussage $A$. Wir gehen davon aus, dass $A$ falsch nicht gelte
+	($\neq A$ ist wahr) und folgern durch logische Schlüsse eine zweite Aussage $B$,
+	von der wir wissen, dass sie falsch ist.\\
+	Wenn alle logischen Schlüsse korrekt waren, muss also $\neq A$ falsch gewesen sein,
+	also $A$ wahr.\\
+	$((\neq A \Rightarrow B)\wedge (\neq B))\Rightarrow A$ ist Tautologie $)$
 \end{document}
